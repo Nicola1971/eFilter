@@ -9,7 +9,7 @@
  * @version 	0.1
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal	@guid eFilters
- * @internal    @properties &param_tv_id=ID TV параметров товара;string; &product_templates_id=ID шаблонов товара;string; &param_cat_id=ID категории параметров;string; &exclude_tvs_from_list=Не включать ТВ в параметры при выводе;string; &tovarChunkName=Имя чанка вывода товара;string; &pattern_folder=Папка паттернов;string;assets/images/pattern/
+ * @internal    @properties &param_tv_id=ID TV opzioni prodotto;string;44 &product_templates_id=ID template prodotto;string;11 &param_cat_id=ID opzioni di ricerca;string; &exclude_tvs_from_list=Non includere impostazioni TV quando nel output;string; &tovarChunkName=Chunk o Nome del prodotto;string; &pattern_folder=cartella pattern;string;assets/images/pattern/
  * @internal	@modx_category Filters
  * @internal    @installset base, sample
  */

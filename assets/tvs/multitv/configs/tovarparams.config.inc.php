@@ -2,42 +2,42 @@
 $settings['display'] = 'vertical';
 $settings['fields'] = array(
 	'param_id' => array(
-        'caption' => '<b>Параметр</b>',
+        'caption' => '<b>parametro</b>',
         'type' => 'dropdown',
         'elements' => '@EVAL return $modx->runSnippet("multiParams", array("action"=>"getParamsToMultiTV"));'
     ),
 	'cat_name' => array(
-        'caption' => 'Категория',
+        'caption' => 'Categoria',
         'type' => 'text'
     ),
 	'list_yes' => array(
-        'caption' => 'В списке',
+        'caption' => 'In lista',
         'type' => 'checkbox',
-        'elements' => 'Да==1'
+        'elements' => 'si==1'
     ),
     'fltr_yes' => array(
-        'caption' => 'Фильтр',
+        'caption' => 'Filtro',
         'type' => 'checkbox',
-        'elements' => 'Да==1'
+        'elements' => 'si==1'
     ),
     'fltr_type' => array(
-        'caption' => 'Тип фильтра',
+        'caption' => 'Tipo di filtro',
         'type' => 'dropdown',
-        'elements' => '||Чекбокс==1||Список==2||Диапазон==3||Флажок==4||Мультиселект==5||Слайдер==6||Цвет==7||Паттерн==8'
+        'elements' => '||checkbox==1||list==2||range==3||select==4||multiselect==5||slider==6||color==7||pattern==8'
     ),
     'fltr_name' => array(
-        'caption' => 'Название фильтра',
+        'caption' => 'Titolo del filtro',
         'type' => 'text'
     ),
 	'fltr_many' => array(
-        'caption' => 'Множественный',
+        'caption' => 'Multiplo',
         'type' => 'checkbox',
-        'elements' => 'Да==1'
+        'elements' => 'si==1'
     ),
 	'param_choose' => array(
-        'caption' => 'Форма выбора',
+        'caption' => 'Selezione parametri',
         'type' => 'checkbox',
-        'elements' => 'Да==1'
+        'elements' => 'si==1'
     )
 );
 $settings['templates'] = array(

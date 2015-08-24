@@ -1,17 +1,17 @@
 <?php
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 
-//список доступных форм
+//List of available shapes
 $formListTpl='
 	<table class="fl">
-		<thead>	
+		<thead>
 			<tr>
 				<td>id</td>
-				<td>Имя</td>
-				<td>Описание (вставить в поле "возможные значения" нужного TV)</td>
-				<td>Значения</td>
-				<td>Изменить</td>
-				<td>Удалить</td>
+				<td>name</td>
+				<td>description (inserted in the "Possible values" necessary TV)</td>
+				<td>value</td>
+				<td>Edit</td>
+				<td>Remove</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,33 +19,33 @@ $formListTpl='
 		</tbody>
 	</table>
 	<br><br>
-	<!--форма для создания новой формы-->
-	<form action="" method="post" class="actionButtons"> 
+	<!--Form to create a new form-->
+	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="newForm">
-		Новый параметр: <br><input type="text" value="" name="title"><br>
-		<input type="submit" value="Добавить параметр">
-	</form>		
+		New option: <br><input type="text" value="" name="title"><br>
+		<input type="submit" value="Add option">
+	</form>
 ';
 
-//строка формы в таблице списка форм
+//line forms in table form a list
 $formRowTpl='
 	<tr>
 		<td>[+id+]</td>
 		<td><b>[+title+]</b></td>
 		<td>[+code+]</td>
-		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=pole" class="button choice"> <img src="[+iconfolder+]page_white_copy.png" alt=""> Список значений</a></td>
-		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=edit" class="button edit"> <img alt="" src="[+iconfolder+]page_white_magnify.png" > Изменить</a></td>
-		<td class="actionButtons"><a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> удалить</a></td>
+		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=pole" class="button choice"> <img src="[+iconfolder+]page_white_copy.png" alt=""> The list of values</a></td>
+		<td class="actionButtons"><a href="[+moduleurl+]&fid=[+id+]&action=edit" class="button edit"> <img alt="" src="[+iconfolder+]page_white_magnify.png" > Edit</a></td>
+		<td class="actionButtons"><a onclick="document.delform.delform1.value=[+id+];document.delform.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> remove</a></td>
 	</tr>
 ';
 
 $formEditTpl='
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="updateForm">
-		Параметр: <br><input type="text" value=\'[+title+]\' name="title" size="50"><br>
-		<input type="submit" value="Сохранить">
+	parameter: <br><input type="text" value=\'[+title+]\' name="title" size="50"><br>
+		<input type="submit" value="retain">
 	</form><br><br>
-	<a href="[+moduleurl+]">К списку параметров</a>
+	<a href="[+moduleurl+]">To the list of parameters</a>
 ';
 
 $fieldListTpl='
@@ -53,47 +53,47 @@ $fieldListTpl='
 		<table class="fl">
 			<thead>
 				<tr>
-					<td>Значение</td>
-					<td>Порядок</td>
-					<td>Изменить</td>
-					<td>Удалить</td>
+					<td>value</td>
+					<td>order</td>
+					<td>Edit</td>
+					<td>Remove</td>
 				</tr>
 			</thead>
 			<tbody>
-				[+fieldRows+]	
+				[+fieldRows+]
 			</tbody>
 		</table>
 		<br>
-		<input type="submit" value="Сохранить порядок">
+		<input type="submit" value="Save your order">
 	</form>
 	<br><br>
-	<h2>Добавление нового значения</h2>
+	<h2>Adding a new value�</h2>
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="newField">
-		Название <br><input type="text" value="" name="title"><br>
-		<input type="submit" value="Добавить значение">
+		title <br><input type="text" value="" name="title"><br>
+		<input type="submit" value="add value">
 	</form>
 	<br><br>
-	<a href="[+moduleurl+]">К списку параметров</a>
+	<a href="[+moduleurl+]">To the list of parameters</a>
 ';
 
 $fieldRowTpl='
 		<tr>
 			<td>[+title+]</td>
 			<td><input type="text" name="sortpole[[+id+]]" value="[+sort+]" class="sort small"></td>
-			<td> <a href="[+moduleurl+]&fid=[+parent+]&pid=[+id+]&action=pole" class="button edit"><img alt="" src="[+iconfolder+]page_white_magnify.png" > Изменить</a> </td>
-			<td> <a onclick="document.delpole.delpole1.value=[+id+];document.delpole.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> Удалить</a> </td>
+			<td> <a href="[+moduleurl+]&fid=[+parent+]&pid=[+id+]&action=pole" class="button edit"><img alt="" src="[+iconfolder+]page_white_magnify.png" > Edit</a> </td>
+			<td> <a onclick="document.delpole.delpole1.value=[+id+];document.delpole.submit();" style="cursor:pointer;" class="button delete"> <img src="[+iconfolder+]delete.png" alt=""> Remove</a> </td>
 		</tr>
 ';
 
 $fieldEditTpl='
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="updateField">
-		Значение: <br><input type="text" value=\'[+title+]\' name="title"><br> 
-		<input type="submit" value="Сохранить изменения">
+		Значение: <br><input type="text" value=\'[+title+]\' name="title"><br>
+		<input type="submit" value="save Changes">
 	</form>
 	<br><br>
-	<a href="[+moduleurl+]&fid=[+parent+]&action=pole">К списку значений</a>
+	<a href="[+moduleurl+]&fid=[+parent+]&action=pole">To the list of values</a>
 ';
 
 

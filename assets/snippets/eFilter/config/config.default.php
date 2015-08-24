@@ -1,17 +1,17 @@
 <?php
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 
-//общая форма фильтра
+//outer tpl del filtro
 $tplFilterForm = '<form id="eFiltr" class="eFiltr eFiltr_form" action="[+url+]" method="get">[+wrapper+]</form>';
 
-//кнопка "сброса" фильтра
-$tplFilterReset = '<div class="eFiltr_reset"><a href="[+reset_url+]">Сбросить фильтр</a></div>';
+//pulsante "Reset" filtro 
+$tplFilterReset = '<div class="eFiltr_reset"><a class="btn btn-default" href="[+reset_url+]">Resetta</a></div>';
 
-//название категории фильтра
+//nome della categoria
 $filterCatName = '<div class="fltr_cat_zagol">[+cat_name+]</div>';
 
 
-//чекбоксы
+//checkboxes
 $tplRowCheckbox = '
 	<label class="[+disabled+]">
 		<input type="checkbox" name="f[[+tv_id+]][]" value="[+value+]" [+selected+] [+disabled+]> [+name+] <span class="fltr_count">[+count+]</span>
@@ -25,7 +25,7 @@ $tplOuterCheckbox = '
 ';
 
 
-//выпадающий список - селект
+//select
 $tplRowSelect = '<option value="[+value+]" [+selected+] [+disabled+]>[+name+] ([+count+])</option>';
 $tplOuterSelect = '
 	<div class="fltr_block fltr_block_select fltr_block[+tv_id+]">
@@ -38,8 +38,8 @@ $tplOuterSelect = '
 ';
 
 
-//диапазон
-$tplRowInterval = 'от<input type="text" name="f[[+tv_id+]][min]" value="[+minval+]" data-min-val="[+minvalcurr+]"> до <input type="text" name="f[[+tv_id+]][max]" value="[+maxval+]" data-max-val="[+maxvalcurr+]">';
+//range
+$tplRowInterval = 'da<input type="text" name="f[[+tv_id+]][min]" value="[+minval+]" data-min-val="[+minvalcurr+]"> a <input type="text" name="f[[+tv_id+]][max]" value="[+maxval+]" data-max-val="[+maxvalcurr+]">';
 $tplOuterInterval = '
 	<div class="fltr_block fltr_block_interval fltr_block[+tv_id+]">
 		<span class="fltr_name fltr_name_interval fltr_name[+tv_id+]">[+name+]</span>
@@ -48,17 +48,17 @@ $tplOuterInterval = '
 ';
 
 
-//радио - radio 
+//radio 
 $tplRowRadio = '<input type="radio" name="f[[+tv_id+]][]" value="[+value+]" [+selected+] [+disabled+]> [+name+] <span class="fltr_count">[+count+]</span>';
 $tplOuterRadio = '
 	<div class="fltr_block fltr_block_radio fltr_block[+tv_id+]">
 		<span class="fltr_name fltr_name_radio fltr_name[+tv_id+]">[+name+]</span>
-		<input type="radio" name="f[[+tv_id+]][]" value="0"> Все
+		<input type="radio" name="f[[+tv_id+]][]" value="0"> Tutti
 		[+wrapper+]
 	</div>
 ';
 
-//выпадающий список - мультиселект
+//elenco a discesa - multiselect
 $tplRowMultySelect = '<option value="[+value+]" [+selected+] [+disabled+]>[+name+] ([+count+])</option>';
 $tplOuterMultySelect = '
 	<div class="fltr_block fltr_block_multy fltr_block[+tv_id+]">
@@ -70,7 +70,7 @@ $tplOuterMultySelect = '
 	</div>
 ';
 
-//слайдер
+//Slider
 $tplRowSlider = '<div style="display:none;">от<input type="text" id="minCostInp[+tv_id+]" name="f[[+tv_id+]][min]" value="[+minval+]" data-min-val="[+minvalcurr+]"> до <input type="text" id="maxCostInp[+tv_id+]" name="f[[+tv_id+]][max]" value="[+maxval+]" data-max-val="[+maxvalcurr+]"></div>';
 $tplOuterSlider = '
 	<div class="fltr_block fltr_block_slider fltr_block[+tv_id+]">
@@ -125,7 +125,7 @@ $("#slider[+tv_id+]").slider({
 </script>
 ';
 
-//цвета
+//colori
 $tplRowColors = '
 	<label class="[+disabled+] [+label_selected+]" style="background:[+value+]" title="[+name+] ([+count+])">
 		<input type="checkbox" name="f[[+tv_id+]][]" value="[+value+]" [+selected+] [+disabled+]> [+name+] <span class="fltr_count">[+count+]</span>
@@ -138,7 +138,7 @@ $tplOuterColors = '
 	</div>
 ';
 
-//паттерн
+//template
 $tplRowPattern = '
 	<label class="[+disabled+] [+label_selected+]" title="[+name+] ([+count+])">
 		<input type="checkbox" name="f[[+tv_id+]][]" value="[+value+]" [+selected+] [+disabled+]> <img src="[+pattern_folder+][+value+]" alt="[+name+]"> [+name+] <span class="fltr_count">[+count+]</span>
