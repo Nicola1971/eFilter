@@ -2,7 +2,7 @@
 $settings['display'] = 'vertical';
 $settings['fields'] = array(
 	'param_id' => array(
-        'caption' => '<b>parametro</b>',
+        'caption' => '<b>Parametro</b>',
         'type' => 'dropdown',
         'elements' => '@EVAL return $modx->runSnippet("multiParams", array("action"=>"getParamsToMultiTV"));'
     ),
