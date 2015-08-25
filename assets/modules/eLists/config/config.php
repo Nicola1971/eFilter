@@ -8,7 +8,7 @@ $formListTpl='
 			<tr>
 				<td>id</td>
 				<td>name</td>
-				<td>description (inserted in the "Possible values" necessary TV)</td>
+				<td>description (copy into "Input Option Values" of the relative TV)</td>
 				<td>value</td>
 				<td>Edit</td>
 				<td>Remove</td>
