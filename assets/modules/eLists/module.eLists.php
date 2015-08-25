@@ -1,8 +1,8 @@
 <?php
 /* author webber   web-ber12@yandex.ru */
 // version 0.1
-// визуальное создание и редактирование простых форм на основе сниппета eForm
-// создать модуль с названием easyForm и кодом 
+// visual creation and editing of simple shapes based on a snippet eForm
+// create a module with the name and code easyForm
 // require_once MODX_BASE_PATH."assets/modules/easyForm/module.easyForm.php";
 
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
@@ -18,7 +18,7 @@ $output=<<<OUT
 <!doctype html>
 <html lang="ru">
 <head>
-	<title>Управление параметрами товара</title>
+	<title>Manage Settings item</title>
 	<link rel="stylesheet" type="text/css" href="media/style/{$eL->theme}/style.css" />
 <style>
 	table{width:100%;}
@@ -43,16 +43,16 @@ $output=<<<OUT
 </style>
 </head>
 <body>
-	<h1>Управление списками</h1>
+	<h1>Manage lists</h1>
 <div id="actions">
     <ul class="actionButtons">
         <li id="Button1"><a href="index.php?a=112&amp;id={$eL->moduleid}">
-            <img src="media/style/{$eL->theme}/images/icons/refresh.png" alt="Обновить"/>
-            Обновить
+            <img src="media/style/{$eL->theme}/images/icons/refresh.png" alt="Refresh"/>
+            Refresh
         </a></li>
         <li id="Button2"><a href="index.php?a=106">
-            <img src="media/style/{$eL->theme}/images/icons/stop.png" alt="Закрыть"/>
-            Закрыть
+            <img src="media/style/{$eL->theme}/images/icons/stop.png" alt="close"/>
+            close
         </a></li>
     </ul>
 </div>
@@ -61,7 +61,7 @@ $output=<<<OUT
     <div class="dynamic-tab-pane-control tab-pane" id="multiTvPanes">
         <div class='tab-row'>
             <h2 id="tabs-event_log" class='tab selected'>{$eL->zagol}</h2>
-            
+
         </div>
         <div class="tab-page panel-container">
             <div id="tabpanel-event_log">
@@ -69,11 +69,11 @@ $output=<<<OUT
 	<div class="action_info">{$eL->info}</div>
 
 		{$eL->eBlock}
-				
-		<form action="" method="post" id="delform" name="delform"> 
+
+		<form action="" method="post" id="delform" name="delform">
 			<input type="hidden" name="delform1" value="">
 		</form>
-		<form action="" method="post" id="delpole" name="delpole"> 
+		<form action="" method="post" id="delpole" name="delpole">
 			<input type="hidden" name="delpole1" value="">
 		</form>
 	</div>
@@ -81,9 +81,9 @@ $output=<<<OUT
 </html>
 OUT;
 
-/****************** конец формирования шаблона в модуль ************/
+/****************** the end of the formation of the pattern into the module ************/
 
 
-//выводим все в область контента модуля
+//all to derive the content of the module�
 echo $output;
 ?>

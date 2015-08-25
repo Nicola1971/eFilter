@@ -2,7 +2,7 @@
 /**
  * tovarParams
  * 
- * Параметры товара в шаблон товара
+ * Options for Product template 
  *
  * @author      webber (web-ber12@yandex.ru)
  * @category    snippet

@@ -8,25 +8,25 @@ public $moduleurl;
 public $iconfolder;
 public $theme;
 public $info_type=1;
-public $eBlock=''; //тут будет главный инфоблок в зависимости от значения $info_type
-public $info=''; //информационная надпись в случае удачного/неудачного действия
-public $zagol='Список параметров';
+public $eBlock=''; //there will be the main information block depending on the value $info_type
+public $info=''; //information sign in case of successful / unsuccessful actions
+public $zagol='parameter List';
 public $list_catagory_table='';
 public $list_value_table='';
-public $type=array(//доступные типы полей в форме
-				"1"=>"Строка",
-				"2"=>"Текст",
+public $type=array(// fields available in the form of
+				"1"=>"line",
+				"2"=>"text",
 				"3"=>"Email",
-				"5"=>"Список (select)",
-				"6" =>"Флажок (radio)",
-				"7"=>"Переключатель (checkbox)",
-				"8"=>"Файл",
-				"9"=>"Мультиселект",
-				"10"=>"Скрытое поле hidden"
+				"5"=>"list (select)",
+				"6" =>"checkbox (radio)",
+				"7"=>"switch (checkbox)",
+				"8"=>"file",
+				"9"=>"Multyselekt",
+				"10"=>"Hidden field "
 			);
 public $form_info;
 public $pole_info;
-			
+
 
 public function __construct($modx){
 	$this->modx=$modx;
@@ -43,7 +43,7 @@ public function parseTpl($arr1,$arr2,$tpl){
 }
 
 public function createTables(){
-	//создаем таблицу форм, если ее нет
+	//ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ ÑÐ°Ð±Ð»Ð¸ÑÑ ÑÐ¾ÑÐ¼, ÐµÑÐ»Ð¸ ÐµÐµ Ð½ÐµÑ
 	$sql="
 	CREATE TABLE IF NOT EXISTS ".$this->list_catagory_table." (
 		`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ public function createTables(){
 	";
 	$q=$this->modx->db->query($sql);
 
-	//создаем таблицу полей форм, если ее нет
+	//ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ ÑÐ°Ð±Ð»Ð¸ÑÑ Ð¿Ð¾Ð»ÐµÐ¹ ÑÐ¾ÑÐ¼, ÐµÑÐ»Ð¸ ÐµÐµ Ð½ÐµÑ
 	$sql="
 	CREATE TABLE IF NOT EXISTS ".$this->list_value_table." (
 		`id` int(5) NOT NULL AUTO_INCREMENT,
@@ -79,66 +79,66 @@ public function getRow($table,$id){
 
 public function addForm($fields,$table){
 	$query=$this->modx->db->insert($fields,$table);
-	if($query){$this->info='<p class="info">Параметр успешно добавлен</p>';}
-	else{$this->info='<p class="info error">Не удалось добавить параметр</p>';}
+	if($query){$this->info='<p class="info">Option successfully added</p>';}
+	else{$this->info='<p class="info error">Failed to add parameter</p>';}
 }
 
 public function updateForm($fields,$table,$where){
 	$query=$this->modx->db->update($fields,$table,$where);
-	if($query){$this->info='<p class="info">Параметр успешно изменен</p>';}
-	else{$this->info='<p class="info error">Не удалось изменить параметр</p>';}
+	if($query){$this->info='<p class="info">The parameter changed successfully</p>';}
+	else{$this->info='<p class="info error">Unable to change setting</p>';}
 }
 
 public function delForm($id){
 	$query=$this->modx->db->query("DELETE FROM ".$this->list_catagory_table." WHERE id=".$id);
 	if($query){
 		$query2=$this->modx->db->query("DELETE FROM ".$this->list_value_table." WHERE parent=".$id);
-		$this->info='<p class="info">Параметр успешно удален</p>';
+		$this->info='<p class="info">Parameter successfully removed</p>';
 	}
-	else{$this->info='<p class="info error">Не удалось удалить параметр</p>';}
+	else{$this->info='<p class="info error">Unable to remove the option</p>';}
 }
 
 
 public function addField($fields,$table){
 	$query=$this->modx->db->insert($fields,$table);
-	if($query){$this->info='<p class="info">Значение списка успешно добавлено</p>';}
-	else{$this->info='<p class="info error">Не удалось добавить значение</p>';}
+	if($query){$this->info='<p class="info">Value list successfully added</p>';}
+	else{$this->info='<p class="info error">Unable to add value</p>';}
 }
 
 public function updateField($fields,$table,$where){
 	$query=$this->modx->db->update($fields,$table,$where);
-	if($query){$this->info='<p class="info">Значение успешно изменено</p>';}
-	else{$this->info='<p class="info error">Не удалось изменить значение</p>';}
+	if($query){$this->info='<p class="info">Value successfully changed</p>';}
+	else{$this->info='<p class="info error">Unable to change the value</p>';}
 }
 
 public function sortFields($order){
 	$ok=1;
-	foreach($order as $k=>$v){//сохраняем порядок сортировки
+	foreach($order as $k=>$v){//save the sort order
 		$query=$this->modx->db->query("UPDATE ".$this->list_value_table." SET `sort`='".(int)$v."' WHERE id=".(int)$k);
 		if(!$query){$ok=1;}
 	}
-	if($ok==1){$this->info='<p class="info">Значения успешно отсортированы</p>';}
-	else{$this->info='<p class="info error">Ошибка при изменении порядка полей</p>';}
+	if($ok==1){$this->info='<p class="info">Values successfully sorted</p>';}
+	else{$this->info='<p class="info error">An error occurred while changing the order of fields</p>';}
 }
 
 public function delField($id){
 	$query=$this->modx->db->query("DELETE FROM ".$this->list_value_table." WHERE id=".$id);
-	if($query){$this->info='<p class="info">Значение успешно удалено</p>';}
-	else{$this->info='<p class="info error">Не удалось удалить значение</p>';}
+	if($query){$this->info='<p class="info">Meaning successfully removed</p>';}
+	else{$this->info='<p class="info error">Failed to delete a value</p>';}
 }
 
 
 
 public function makeActions(){
-	if(isset($_POST['delform1'])){//удаление формы
+	if(isset($_POST['delform1'])){//Remove form
 		$this->delForm((int)$_POST['delform1']);
 	}
-	
-	if(isset($_POST['delpole1'])){//удаление поля
+
+	if(isset($_POST['delpole1'])){//Remove field
 		$this->delField((int)$_POST['delpole1']);
 	}
 
-	if(isset($_POST['action'])&&$_POST['action']=='newForm'){//добавляем новую форму
+	if(isset($_POST['action'])&&$_POST['action']=='newForm'){//add a new form
 		$name=$this->escape($_POST['name']);
 		$title=$this->escape($_POST['title']);
 		$email=$this->escape($_POST['email']);
@@ -154,35 +154,35 @@ public function makeActions(){
 		$this->addForm($flds,$this->list_catagory_table);
 	}
 
-	if(isset($_GET['fid'])&&isset($_GET['action'])&&$_GET['action']=='edit'){//редактирование формы
+	if(isset($_GET['fid'])&&isset($_GET['action'])&&$_GET['action']=='edit'){//editing form
 		$this->info_type=2;
-		$this->zagol='Редактирование параметра';
+		$this->zagol='Editing option';
 		if(isset($_POST['action'])&&$_POST['action']=='updateForm'){
 			$title=$this->escape($_POST['title']);
 			$flds=array(
 				'title'=>$title
 			);
-			
+
 			$this->updateForm($flds, $this->list_catagory_table, "id=" . (int)$_GET['fid']);
 		}
-		
-		//обновляем информацию о форме для вывода
+
+		//We update the information on the form to display
 		$this->form_info=$this->getRow($this->list_catagory_table, (int)$_GET['fid']);
 	}
 
 
-	//список полей формы
+	//List of form fields
 	if(isset($_GET['fid'])&&isset($_GET['action'])&&$_GET['action']=='pole'&&!isset($_GET['pid'])){
 		$this->info_type=3;
-		$this->zagol='Список значений параметра';
-		
-		if(isset($_POST['sortpole'])){//сортируем поля
-		
+		$this->zagol='Setting list';
+
+		if(isset($_POST['sortpole'])){//sort field
+
 			$this->sortFields($_POST['sortpole']);
 		}
-		
+
 		$parent=(int)$_GET['fid'];
-		if(isset($_POST['action'])&&$_POST['action']=='newField'){//добавляем новое поле
+		if(isset($_POST['action'])&&$_POST['action']=='newField'){//add a new field
 			$title=$this->escape($_POST['title']);
 			$type=$this->escape($_POST['type']);
 			$value=$this->escape($_POST['value']);
@@ -199,15 +199,15 @@ public function makeActions(){
 			);
 			$this->addField($flds,$this->list_value_table);
 		}
-	}//конец список полей
+	}//the end of the list of fields
 
 
-	//редактирование поля формы
+	//Editing form fields
 	if(isset($_GET['fid'])&&isset($_GET['action'])&&$_GET['action']=='pole'&&isset($_GET['pid'])){
 		$this->info_type=4;
-		$this->zagol='Редактирование значения';
+		$this->zagol='Editing values';
 		$parent=(int)$_GET['fid'];
-		if(isset($_POST['action'])&&$_POST['action']=='updateField'){//редактируем поле
+		if(isset($_POST['action'])&&$_POST['action']=='updateField'){//edit field
 			$title=$this->escape($_POST['title']);
 			$type=$this->escape($_POST['type']);
 			$value=$this->escape($_POST['value']);
@@ -215,11 +215,11 @@ public function makeActions(){
 			$flds=array(
 				'title'=>$title
 			);
-			
+
 			$this->updateField($flds,$this->list_value_table,"id=".(int)$_GET['pid']);
 		}
-		
-		//обновляем информацию о поле для вывода
+
+		//update the information on the field to display
 		$this->pole_info=$this->getRow($this->list_value_table,(int)$_GET['pid']);
 	}
 }
@@ -288,27 +288,27 @@ public function getFieldEdit(){
 }
 
 public function show(){
-	//блок вывода списка форм
+	//block a list of forms
 	switch ($this->info_type){
 		case '1':
 			$this->eBlock .= $this->getFormList();
 		break;
-		
+
 		case '2':
 			$this->eBlock .= $this->getFormEdit();
 		break;
-		
+
 		case '3':
 			$this->eBlock .= $this->getFieldList();
 		break;
-		
+
 		case '4':
 			$this->eBlock .= $this->getFieldEdit();
 		break;
-		
+
 		default:
 			$this->eBlock .= $this->getFormList();
-		break;		
+		break;
 	}
 }
 

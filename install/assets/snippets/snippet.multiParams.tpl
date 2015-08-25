@@ -2,7 +2,7 @@
 /**
  * multiParams
  * 
- * Параметры товара для категории
+ * Parameters for product category
  *
  * @author      webber (web-ber12@yandex.ru)
  * @category    snippet

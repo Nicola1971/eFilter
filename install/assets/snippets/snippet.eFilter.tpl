@@ -2,7 +2,7 @@
 /**
  * eFilter
  * 
- * Вывод фильтра
+ * Output filter
  *
  * @author	    webber (web-ber12@yandex.ru)
  * @category 	snippet

@@ -2,7 +2,7 @@
 /**
  * eFilterResult
  * 
- * Вывод отфильтрованных товаров
+ * Render filtered products
  *
  * @author      webber (web-ber12@yandex.ru)
  * @category    snippet

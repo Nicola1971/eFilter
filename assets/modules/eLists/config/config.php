@@ -67,7 +67,7 @@ $fieldListTpl='
 		<input type="submit" value="Save your order">
 	</form>
 	<br><br>
-	<h2>Adding a new value�</h2>
+	<h2>Add a new value</h2>
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="newField">
 		title <br><input type="text" value="" name="title"><br>
@@ -89,7 +89,7 @@ $fieldRowTpl='
 $fieldEditTpl='
 	<form action="" method="post" class="actionButtons">
 		<input type="hidden" name="action" value="updateField">
-		Значение: <br><input type="text" value=\'[+title+]\' name="title"><br>
+		value: <br><input type="text" value=\'[+title+]\' name="title"><br>
 		<input type="submit" value="save Changes">
 	</form>
 	<br><br>
